@@ -13,28 +13,69 @@ function ArchScaleConverter() {
     setConversion(scaledSize);
   };
 
+  const containerStyle = {
+    width: "300px",
+    margin: "20px auto",
+    padding: "20px",
+    backgroundColor: "#222",
+    color: "#fff",
+    borderRadius: "10px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+    fontFamily: "Arial, sans-serif",
+  };
+
+  const labelStyle = {
+    display: "block",
+    marginBottom: "5px",
+    color: "#ccc",
+  };
+
+  const inputStyle = {
+    width: "100%",
+    padding: "10px",
+    marginBottom: "15px",
+    borderRadius: "5px",
+    border: "1px solid #444",
+    backgroundColor: "#333",
+    color: "#fff",
+  };
+
+  const buttonStyle = {
+    width: "100%",
+    padding: "10px",
+    backgroundColor: "#1e90ff",
+    border: "none",
+    borderRadius: "5px",
+    color: "#fff",
+    fontWeight: "bold",
+    cursor: "pointer",
+  };
+
   return React.createElement(
     "div",
-    null,
+    { style: containerStyle },
     React.createElement("h2", null, "Architectural Scale Converter"),
-    React.createElement("label", null, "Feet"),
+    React.createElement("label", { style: labelStyle }, "Feet"),
     React.createElement("input", {
       type: "number",
       value: feet,
       onChange: (e) => setFeet(e.target.value),
+      style: inputStyle,
     }),
-    React.createElement("label", null, "Inches"),
+    React.createElement("label", { style: labelStyle }, "Inches"),
     React.createElement("input", {
       type: "number",
       value: inches,
       onChange: (e) => setInches(e.target.value),
+      style: inputStyle,
     }),
-    React.createElement("label", null, "Scale"),
+    React.createElement("label", { style: labelStyle }, "Scale"),
     React.createElement(
       "select",
       {
         value: scale,
         onChange: (e) => setScale(e.target.value),
+        style: inputStyle,
       },
       React.createElement("option", { value: "96" }, '1/8" = 1\'-0"'),
       React.createElement("option", { value: "48" }, '1/4" = 1\'-0"'),
@@ -44,7 +85,7 @@ function ArchScaleConverter() {
     ),
     React.createElement(
       "button",
-      { onClick: handleConvert },
+      { onClick: handleConvert, style: buttonStyle },
       "Convert"
     ),
     React.createElement(
@@ -61,4 +102,3 @@ const ArchScaleConverterElement = reactToWebComponent(
   ReactDOM
 );
 customElements.define("arch-scale-converter", ArchScaleConverterElement);
-
