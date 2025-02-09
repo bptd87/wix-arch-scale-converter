@@ -13,35 +13,52 @@ function ArchScaleConverter() {
     setConversion(scaledSize);
   };
 
-  return (
-    <div>
-      <h2>Architectural Scale Converter</h2>
-      <label>Feet</label>
-      <input
-        type="number"
-        value={feet}
-        onChange={(e) => setFeet(e.target.value)}
-      />
-      <label>Inches</label>
-      <input
-        type="number"
-        value={inches}
-        onChange={(e) => setInches(e.target.value)}
-      />
-      <label>Scale</label>
-      <select value={scale} onChange={(e) => setScale(e.target.value)}>
-        <option value="96">1/8" = 1'-0"</option>
-        <option value="48">1/4" = 1'-0"</option>
-        <option value="24">1/2" = 1'-0"</option>
-        <option value="12">1" = 1'-0"</option>
-        <option value="1">1:1 (Full Scale)</option>
-      </select>
-      <button onClick={handleConvert}>Convert</button>
-      <h3>Converted Size: {conversion} mm</h3>
-    </div>
+  return React.createElement(
+    "div",
+    null,
+    React.createElement("h2", null, "Architectural Scale Converter"),
+    React.createElement("label", null, "Feet"),
+    React.createElement("input", {
+      type: "number",
+      value: feet,
+      onChange: (e) => setFeet(e.target.value),
+    }),
+    React.createElement("label", null, "Inches"),
+    React.createElement("input", {
+      type: "number",
+      value: inches,
+      onChange: (e) => setInches(e.target.value),
+    }),
+    React.createElement("label", null, "Scale"),
+    React.createElement(
+      "select",
+      {
+        value: scale,
+        onChange: (e) => setScale(e.target.value),
+      },
+      React.createElement("option", { value: "96" }, '1/8" = 1\'-0"'),
+      React.createElement("option", { value: "48" }, '1/4" = 1\'-0"'),
+      React.createElement("option", { value: "24" }, '1/2" = 1\'-0"'),
+      React.createElement("option", { value: "12" }, '1" = 1\'-0"'),
+      React.createElement("option", { value: "1" }, "1:1 (Full Scale)")
+    ),
+    React.createElement(
+      "button",
+      { onClick: handleConvert },
+      "Convert"
+    ),
+    React.createElement(
+      "h3",
+      null,
+      `Converted Size: ${conversion} mm`
+    )
   );
 }
 
-// Convert the React component to a Web Component
-const ArchScaleConverterElement = reactToWebComponent(ArchScaleConverter, React, ReactDOM);
+const ArchScaleConverterElement = reactToWebComponent(
+  ArchScaleConverter,
+  React,
+  ReactDOM
+);
 customElements.define("arch-scale-converter", ArchScaleConverterElement);
+
