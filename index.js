@@ -1,7 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { useState } from "react";
-import reactToWebComponent from "react-to-webcomponent";
+const { useState } = React;
 
 function ArchScaleConverter() {
   const [feet, setFeet] = useState("");
@@ -45,5 +42,6 @@ function ArchScaleConverter() {
   );
 }
 
+// Convert the React component to a Web Component
 const ArchScaleConverterElement = reactToWebComponent(ArchScaleConverter, React, ReactDOM);
 customElements.define("arch-scale-converter", ArchScaleConverterElement);
