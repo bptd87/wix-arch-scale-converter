@@ -40,6 +40,12 @@ function ArchScaleConverter() {
     color: "#fff",
   };
 
+  const selectStyle = {
+    ...inputStyle,
+    appearance: "none", // Makes the dropdown look consistent
+    padding: "10px",
+  };
+
   const buttonStyle = {
     width: "100%",
     padding: "10px",
@@ -51,10 +57,17 @@ function ArchScaleConverter() {
     cursor: "pointer",
   };
 
+  const resultStyle = {
+    fontSize: "18px",
+    fontWeight: "bold",
+    marginTop: "15px",
+    textAlign: "center",
+  };
+
   return React.createElement(
     "div",
     { style: containerStyle },
-    React.createElement("h2", null, "Architectural Scale Converter"),
+    React.createElement("h2", { style: { textAlign: "center" } }, "Architectural Scale Converter"),
     React.createElement("label", { style: labelStyle }, "Feet"),
     React.createElement("input", {
       type: "number",
@@ -75,7 +88,7 @@ function ArchScaleConverter() {
       {
         value: scale,
         onChange: (e) => setScale(e.target.value),
-        style: inputStyle,
+        style: selectStyle,
       },
       React.createElement("option", { value: "96" }, '1/8" = 1\'-0"'),
       React.createElement("option", { value: "48" }, '1/4" = 1\'-0"'),
@@ -89,8 +102,8 @@ function ArchScaleConverter() {
       "Convert"
     ),
     React.createElement(
-      "h3",
-      null,
+      "div",
+      { style: resultStyle },
       `Converted Size: ${conversion} mm`
     )
   );
@@ -102,3 +115,4 @@ const ArchScaleConverterElement = reactToWebComponent(
   ReactDOM
 );
 customElements.define("arch-scale-converter", ArchScaleConverterElement);
+
