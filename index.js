@@ -29,4 +29,18 @@ function ArchScaleConverter() {
             <label>Scale</label>
             <select value={scale} onChange={(e) => setScale(e.target.value)}>
                 <option value="96">1/8" = 1'-0"</option>
-                <
+                <option value="48">1/4" = 1'-0"</option>
+                <option value="24">1/2" = 1'-0"</option>
+                <option value="12">1" = 1'-0"</option>
+                <option value="1">1:1 (Full Scale)</option>
+            </select>
+
+            <button onClick={handleConvert}>Convert</button>
+
+            <h3>Converted Size: {conversion} mm</h3>
+        </div>
+    );
+}
+
+const ArchScaleConverterElement = reactToWebComponent(ArchScaleConverter, React, ReactDOM);
+customElements.define("arch-scale-converter", ArchScaleConverterElement);
