@@ -23,6 +23,7 @@ function ArchScaleConverter() {
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
     fontFamily: "Arial, sans-serif",
     textAlign: "left",
+    boxSizing: "border-box", // Ensures padding and borders fit within the container
   };
 
   const titleStyle = {
@@ -39,24 +40,19 @@ function ArchScaleConverter() {
   };
 
   const inputStyle = {
-    width: "100%",
+    width: "calc(100% - 20px)", // Ensure it fits within the container
     padding: "10px",
     marginBottom: "15px",
     borderRadius: "5px",
     border: "1px solid #444",
     backgroundColor: "#333",
     color: "#fff",
+    boxSizing: "border-box", // Important for inputs to respect the container
   };
 
   const selectStyle = {
-    width: "100%",
-    padding: "10px",
-    marginBottom: "15px",
-    borderRadius: "5px",
-    border: "1px solid #444",
-    backgroundColor: "#333",
-    color: "#fff",
-    appearance: "auto", // Ensure dropdown arrow is visible
+    ...inputStyle,
+    appearance: "auto", // Ensure the dropdown arrow is visible
   };
 
   const buttonStyle = {
